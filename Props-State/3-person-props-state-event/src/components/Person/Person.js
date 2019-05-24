@@ -6,7 +6,7 @@ const Person = (props) => {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <h5 onClick={props.click}>Hello my name is {props.name}, I am a {props.designation} at {props.organization}</h5>
+                    <h5>Hello my name is {props.name}, I am a {props.designation} at {props.organization}</h5>
                     <p>{props.children}</p>
                 </div>
             </div>

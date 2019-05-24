@@ -43,8 +43,7 @@ class App extends Component {
         <Person
           name={this.state.person[1].name}
           designation={this.state.person[1].designation}
-          organization={this.state.person[1].organization} 
-          click={this.onPersonChangeHandler}>
+          organization={this.state.person[1].organization} >
           {this.state.otherState}
         </Person>
         <Person
