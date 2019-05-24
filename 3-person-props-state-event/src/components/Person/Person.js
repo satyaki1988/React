@@ -10,6 +10,11 @@ const Person = (props) => {
                     <p>{props.children}</p>
                 </div>
             </div>
+            <div className="row">
+                <div className="col-12">
+                    <input type="text" onChange={props.nameChange} value={props.name}/>
+                </div>
+            </div>
         </div>
     );
 }

@@ -14,11 +14,11 @@ class App extends Component {
     otherState: 'He taught us so much :('
   };
 
-  onPersonChangeHandler= () => {
+  onPersonChangeHandler= (newName) => {
     console.log('onPersonChangeHandler');
     this.setState({
       person: [
-        { name: 'Mukherjee', designation: 'App Developer', organization: 'IBM' },
+        { name: newName, designation: 'App Developer', organization: 'IBM' },
         { name: 'Sumon', designation: 'Project Manager', organization: 'Air BP' },
         { name: 'Ayan', designation: 'Scrum Master', organization: 'Ad Hoc 24' },
         { name: 'Natasha', designation: 'Lead Developer', organization: 'IBM India' },
@@ -27,24 +27,38 @@ class App extends Component {
     });
   }
 
+  onNameChangeHandler = (event) => {
+    this.setState({
+      person: [
+        { name: event.target.value, designation: 'App Developer', organization: 'IBM' },
+        { name: 'Sumon', designation: 'Project Manager', organization: 'Air BP' },
+        { name: 'Ayan', designation: 'Scrum Master', organization: 'Ad Hoc 24' },
+        { name: 'Natasha', designation: 'Lead Developer', organization: 'IBM India' },
+        { name: 'Sinijini', designation: 'Tester', organization: 'BP' }
+      ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <h1>Welcome to the React development!!!</h1>
+          
         </div>
         <hr></hr>
-        <button className="btn btn-primary" onClick={this.onPersonChangeHandler}>Change Person</button>
+        <button className="btn btn-primary" onClick={this.onPersonChangeHandler.bind(this, 'Sourabh')}>Change Person</button>
         <hr></hr>
         <Person
           name={this.state.person[0].name}
           designation={this.state.person[0].designation}
-          organization={this.state.person[0].organization} />
+          organization={this.state.person[0].organization}
+          nameChange = {this.onNameChangeHandler} />
         <Person
           name={this.state.person[1].name}
           designation={this.state.person[1].designation}
           organization={this.state.person[1].organization} 
-          click={this.onPersonChangeHandler}>
+          click={() => this.onPersonChangeHandler('Satyaki')}>
           {this.state.otherState}
         </Person>
         <Person
