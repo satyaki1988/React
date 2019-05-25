@@ -67,31 +67,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-### React Hooks for Functional Componenet
+### to create element using
 
-Prior 16.8 version we are not able to manage or handle state on functional 
-
-component, but we can do since 16.8 using react hooks. There are so many react 
-
-hoks available but we will use useState() for state management at functional 
-
-component.
-
-----
-
-useState returns stateful value with two array elements.
-
-First element defines the CURRENT state
-Second element represent the NEW state
-
-#Syntax
-
-const [currentState, setState] = useState(initialState);
-
-here setState doesn't merge the current content with the previous one. It 
-
-directly updates the content. So it will be better to intialize different 
-
-useState for different state.
-
-
+React.createElement(
+  type,
+  [props],
+  [...children]
+)
