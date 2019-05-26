@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         <hr />
-        <button onClick={this.onShowHidePanel}>Toggle Show/Hide</button>
+        <button className="btn btn-primary" onClick={this.onShowHidePanel}>Toggle Show/Hide</button>
         <hr />
         {emps}
       </div>
