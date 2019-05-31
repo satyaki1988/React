@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Employee = (props) => {
+    const random = Math.random();
+    if (random > 0.7) {
+        throw new Error('An error occur');
+    }
     return (
         <div className="container">
             <div className="row">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import styles from './App.module.css';
 import Employee from './components/Employee/Employee';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
 
@@ -25,13 +26,13 @@ class App extends Component {
 
     const emps = [...this.state.employees];
 
-    emps.splice(empIndex,1);
-    this.setState({employees: emps});
+    emps.splice(empIndex, 1);
+    this.setState({ employees: emps });
   }
 
   onNameChangeHandler = (event, id) => {
-    const empIndex = this.state.employees.findIndex(e => {
-      return e.id === id ;
+    const empIndex = this.state.employees.findIndex(emp => {
+      return emp.id === id;
     });
 
     const emp = {
@@ -44,7 +45,7 @@ class App extends Component {
     const emps = [...this.state.employees];
     emps[empIndex] = emp;
 
-    this.setState({employees: emps});
+    this.setState({ employees: emps });
   }
 
   render() {
@@ -55,19 +56,20 @@ class App extends Component {
       emps = (
         employees.map((employee, index) => {
           return (
-            <Employee
-              name={employee.name}
-              role={employee.role}
-              key={employee.id} 
-              onRemove={() => this.onRemoveEmployee(index)}
-              onNameChange={e => this.onNameChangeHandler(e, employee.id)}/>
+            <ErrorBoundary key={employee.id} >
+              <Employee
+                name={employee.name}
+                role={employee.role}
+                onRemove={() => this.onRemoveEmployee(index)}
+                onNameChange={e => this.onNameChangeHandler(e, employee.id)} />
+            </ErrorBoundary>
           )
         })
       )
     }
 
     return (
-      <div className="App">
+      <div className={styles.center}>
         <hr />
         <button className="btn btn-primary" onClick={this.onShowHidePanel}>Toggle Show/Hide</button>
         <hr />
